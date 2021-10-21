@@ -13,6 +13,9 @@ let AuthProvider=(props)=>{
                 let {displayName, email, photoURL, uid}=user;
                 let docRef=firestore.collection("users").doc(uid);
                 let documentSnapshot= await docRef.get();
+                // console.log("uid :"+uid);
+                // console.log("name :"+displayName);
+                // console.log("email :"+email);
                 if(!documentSnapshot.exists){
                     docRef.set({displayName,email,photoURL});
                 }

@@ -1,0 +1,101 @@
+.video-card{
+    width: 30%;
+    height: 100%;
+    /* background-color: black; */
+    margin:auto;
+    border: 1px solid black;
+    scroll-snap-align: start;
+    position: relative;
+}
+.Video-Card-Video{
+    z-index: 1;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.Video-Card-Username{
+    z-index: 2;
+    color: white;
+    bottom: 6rem;
+    left: 20px;
+    position: absolute;
+    font-weight: 500;
+}
+.Video-Card-Music{
+    z-index: 2;
+    color: white;
+    display: flex;
+    width: 50%;
+    position: absolute;
+    bottom: 5.2rem;
+    left: 12px;
+}
+.Video-Card-Like{
+    z-index: 2;
+    color: red;
+    position: absolute;
+    bottom: 11rem;
+    right: 20px;
+}
+.Video-Card-Comment{
+    z-index: 2;
+    color: white;
+    position: absolute;
+    bottom: 13rem;
+    right: 20px;
+}
+.Video-Card-Comment-Box{
+    height: 30%;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    background-color: white;
+    z-index: 3;
+}
+.Actual-Comments{
+    height: 85%;
+    width: 100%;
+    background-color: white;
+}
+.Comment-Form{
+    height: 15%;
+    display: flex;
+}
+.Comment-Form input{
+    height: 100%;
+    width: 70%;
+    margin-left: 1.5%;
+    margin-right: 2%;
+}
+.Comment-Form button{
+    height: 100%;
+    width: 25%;
+}
+.Posted-Comments img{
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-bottom: 7px;
+}
+.Posted-Comments{
+    display: flex;
+}
+.Comment{
+    font-size: 0.9rem;
+}
+.Commented-User{
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+/* .Posted-Comments p{
+    margin-left: 10px;
+} */
+.Posted-Comments{
+    margin-top: 6px;
+}
+.Posted-Comments div{
+    margin-left: 10px;
+}
+

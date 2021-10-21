@@ -2,8 +2,8 @@ import {BrowserRouter as Router, Route , Switch} from "react-router-dom";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
 import AuthProvider from "./AuthProvider";
-import { useEffect } from "react";
-import { firestore } from "./firebase";
+// import { useEffect } from "react";
+// import { firestore } from "./firebase";
 function App() {
   // useEffect(()=>{
   //   // add
