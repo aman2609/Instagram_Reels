@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./VideoCard.css"
 
-let VideoCard=()=>{
+let VideoCard=(props)=>{
     let [playing,setPlaying]=useState(false);
     let [commentBox,setCommentBox]=useState(false);
     return (
     <div className="video-card">
-        <p className="Video-Card-Username">Fake User</p>
+        <p className="Video-Card-Username">{props.data.name}</p>
         <span className="Video-Card-Music">
-            <span class="material-icons-round">music_note</span>
+            <span className="material-icons-round">music_note</span>
             <marquee>Some Song</marquee>
         </span>
         <span onClick={()=>{
@@ -18,8 +18,8 @@ let VideoCard=()=>{
                 setCommentBox(true);
             }
 
-        }} class="material-icons-round Video-Card-Comment">comment</span>
-        <span class="material-icons-round Video-Card-Like">favorite_border</span>
+        }} className="material-icons-round Video-Card-Comment">comment</span>
+        <span className="material-icons-round Video-Card-Like">favorite_border</span>
         {commentBox?
         (<div className="Video-Card-Comment-Box">
             <div className="Actual-Comments">
@@ -32,7 +32,6 @@ let VideoCard=()=>{
                     </div>
                     
                 </div>
-                
             </div>
             <div className="Comment-Form ">
                 <input type="text" />
@@ -47,7 +46,7 @@ let VideoCard=()=>{
                 e.currentTarget.play();
                 setPlaying(true);
             }
-        }} loop src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"  className="Video-Card-Video"></video>
+        }} loop src={props.data.url}  className="Video-Card-Video"></video>
     </div>);
 }
 export default VideoCard;

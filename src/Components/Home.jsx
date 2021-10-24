@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Redirect } from "react-router";
 import { authContext } from "../AuthProvider";
 import {auth, firestore, storage} from "../firebase";
@@ -6,16 +6,29 @@ import "./Home.css"
 import VideoCard from "./videoCard"
 let Home=()=>{
     let user=useContext(authContext);
-    console.log(user);
+    let [posts,setPosts]=useState([]);
+    useEffect(()=>{
+        let unSub=firestore.collection("posts").onSnapshot((querySnapshot)=>{
+            let docArr=querySnapshot.docs;
+            let arr=[];
+            for(let i=0;i<docArr.length;i++){
+                arr.push({id:docArr[i].id,...docArr[i].data()});
+                // console.log(docArr);
+            }
+            setPosts(arr);
+        })
+        return ()=>{unSub();}
+    },[])
+    // console.log(user);
     return (
     <>
         
         {user?"":<Redirect to="./Login" />}
         <div className="Video-Container">
-         <VideoCard/>
-         <VideoCard/>
-         <VideoCard/>
-         <VideoCard/>
+            {posts.map((el)=>{
+                return <VideoCard key={el.id} data={el}/>
+            })}
+         
         </div>
         <input type="file" onClick={(e)=>{
             e.currentTarget.value=null;
