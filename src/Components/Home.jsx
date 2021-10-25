@@ -7,6 +7,7 @@ import VideoCard from "./videoCard"
 let Home=()=>{
     let user=useContext(authContext);
     let [posts,setPosts]=useState([]);
+    
     useEffect(()=>{
         let unSub=firestore.collection("posts").onSnapshot((querySnapshot)=>{
             let docArr=querySnapshot.docs;
@@ -30,7 +31,7 @@ let Home=()=>{
             })}
          
         </div>
-        <input type="file" onClick={(e)=>{
+        <input className="abc" type="file" onClick={(e)=>{
             e.currentTarget.value=null;
         }} 
         onChange={(e)=>{
@@ -52,7 +53,7 @@ let Home=()=>{
                 let uploadTask=storage.ref(`/posts/${user.uid}/${Date.now()+"-"+name}`).put(videoObj);
                 uploadTask.on("state_changed",null,null,()=>{
                     uploadTask.snapshot.ref.getDownloadURL().then((url)=>{
-                        console.log(url);
+                        // console.log(url);
                         firestore.collection("posts").add({name:user.displayName,url,comment:[],likes:[]})
                     })
                 })

@@ -14,7 +14,7 @@
     scroll-snap-type:y mandatory;
     overflow-y: scroll;
 }
-input{
+.abc{
     position:fixed;
     right:20px;
     bottom: 10rem;
